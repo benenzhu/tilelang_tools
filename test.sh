@@ -1,9 +1,12 @@
 cd testing
 
 N=""
-N="-n 10"
-pytest --verbose --color=yes --durations=0 --showlocals --cache-clear \
+# N="-n 10"
+pytest -s --verbose --color=yes --durations=0 --showlocals --cache-clear -vv \
   $N --ignore=./python/runtime --ignore=./python/transform \
+  python/amd/test_tilelang_gemm_mfma_intrinsic.py::test_assert_tl_matmul[128-128-128-float16-float16-float32-False-True-1]
+  python/amd/test_tilelang_gemm_mfma_intrinsic.py
+  python/amd/test_tilelang_gemm_mfma_preshuffle.py
   python/
   python/amd/test_tilelang_test_amd.py::test_gemm_f16f32f32_nt
   python/tilelibrary/test_tilelang_tilelibrary_gemm.py::test_gemm_sr[512-1024-768-False-True-float16-float16-float32-128-256-32-2-128] 
