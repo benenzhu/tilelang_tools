@@ -50,7 +50,7 @@ fi
 # Install dev dependencies if using no-build-isolation
 if [ "$NO_BUILD_ISOLATION" = "1" ]; then
     echo "Installing dev dependencies..."
-    pip install -r requirements-dev.txt -q
+    pip install -r requirements-dev.txt 
 fi
 
 # Build command
