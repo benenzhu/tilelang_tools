@@ -1,11 +1,14 @@
 cd testing
 
 rm -rf ~/.tilelang/cache
-N=""
-N="-n 50"
+N="$@"
 pytest --verbose --color=yes --durations=0 --showlocals --cache-clear -vv \
   $N --ignore=./python/runtime --ignore=./python/transform --ignore=./python/language/test_tilelang_language_reduce.py --ignore=testing/python/language/test_tilelang_language_atomic.py::test_tile_atomic_max --ignore=testing/python/language/test_tilelang_language_int64.py::test_fill_static --ignore=testing/python/language/test_tilelang_language_eager_jit.py::test_jit2_many_annot --ignore=python/language/test_tilelang_language_cumsum.py  --ignore=python/issue/test_tilelang_issue_1106.py \
+  python/tilelibrary/test_tilelang_tilelibrary_gemm.py::test_gemm_rr
   python/
+    python/tilelibrary/test_tilelang_tilelibrary_gemm.py::test_gemm_rr[128-128-128-False-False-float32-float32-float32-128-128-32-2-128]
+  python/amd
+  python/amd/test_tilelang_test_amd.py::test_gemm_bf16f32f32_nt[False-False-1]
   python/amd/test_tilelang_gemm_mfma_intrinsic.py::test_assert_tl_matmul[128-128-128-float16-float16-float32-False-True-1]
   python/amd/test_tilelang_gemm_mfma_intrinsic.py
   python/amd/test_tilelang_gemm_mfma_preshuffle.py
